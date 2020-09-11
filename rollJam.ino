@@ -287,7 +287,7 @@ void setup()
   pinMode(cs_jam, OUTPUT);
   pinMode(gdo0_rx, INPUT);
   pinMode(gdo0_jam, INPUT);
-  pinMode(pushButton, INPUT);
+  pinMode(pushButton, INPUT_PULLUP);
   
   Serial.begin(9600);
   SPI.begin();
@@ -412,7 +412,7 @@ replaySecond();
       Serial.println("");
       Serial.println("Waiting for button press...");
       Serial.println("");
-      while(digitalRead(pushButton) == LOW)
+      while(digitalRead(pushButton) == HIGH)
       {
         delay(100);  
       }
